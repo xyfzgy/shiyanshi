@@ -1,0 +1,32 @@
+server:
+  port: 9090
+spring:
+  application:
+    name: shiyanshi
+  datasource:
+    url: jdbc:mysql://localhost:3306/shiyanshi?useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai
+    username: ${MYSQL_USERNAME}
+    password: ${MYSQL_PASSWORD}
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  ai:
+    dashscope:
+      # 从环境变量读取，不要在代码里硬编码
+      api-key: ${OPENAI_API_KEY}
+      chat:
+        options:
+          model: qwen-plus          # 对话模型，可换 qwen-max / qwen-turbo
+          temperature: 0.7
+      embedding:
+        options:
+          model: text-embedding-v4  # Embedding 模型，RAG 向量化用
+          dimensions: 1024           # 与向量库维度对齐
+mybatis-plus:
+  configuration:
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+  global-config:
+    db-config:
+      id-type: auto
+
+logging:
+  level:
+    org.springframework.ai: DEBUG
