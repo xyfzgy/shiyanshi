@@ -20,6 +20,7 @@ spring:
         options:
           model: text-embedding-v4  # Embedding 模型，RAG 向量化用
           dimensions: 1024           # 与向量库维度对齐
+          max-token: 1024            # 最大 token 数，根据模型调整，避免超出限制
 mybatis-plus:
   configuration:
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl

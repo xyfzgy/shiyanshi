@@ -1,18 +1,10 @@
 package com.gaoyu.shiyanshi.controller;
 
 import com.gaoyu.shiyanshi.agent.FoodAgent;
-import com.gaoyu.shiyanshi.agent.SlotManager;
-import com.gaoyu.shiyanshi.dto.ChatRequest;
 import com.gaoyu.shiyanshi.entity.Conversation;
-import com.gaoyu.shiyanshi.mapper.ConversationMapper;
 import com.gaoyu.shiyanshi.service.ConversationService;
-import lombok.Data;
 import lombok.RequiredArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
-import org.springframework.ai.chat.client.ChatClient;
-import org.springframework.ai.chat.memory.ChatMemory;
 import org.springframework.http.MediaType;
-import org.springframework.http.codec.ServerSentEvent;
 import org.springframework.web.bind.annotation.*;
 import reactor.core.publisher.Flux;
 

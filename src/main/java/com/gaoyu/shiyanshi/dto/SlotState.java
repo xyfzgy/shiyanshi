@@ -26,7 +26,9 @@ public class SlotState {
     private String 场景;
 
     public void merge(SlotDelta delta) {
-        if (delta == null) return;
+        if (delta == null) {
+            return;
+        }
         setIfNotBlank(delta.食材(), v -> this.食材 = v);
         setIfNotBlank(delta.口味(), v -> this.口味 = v);
         setIfNotBlank(delta.忌口(), v -> this.忌口 = v);
@@ -44,8 +46,12 @@ public class SlotState {
     }
 
     public String nextMissingP0() {
-        if (!notBlank(食材)) return "食材";
-        if (!notBlank(口味)) return "口味";
+        if (!notBlank(食材)) {
+            return "食材";
+        }
+        if (!notBlank(口味)) {
+            return "口味";
+        }
         return null;
     }
 
@@ -65,11 +71,15 @@ public class SlotState {
     }
 
     private void setIfNotBlank(String v, java.util.function.Consumer<String> setter) {
-        if (v != null && !v.isBlank()) setter.accept(v);
+        if (v != null && !v.isBlank()) {
+            setter.accept(v);
+        }
     }
 
     private void putIfNotBlank(Map<String, String> map, String k, String v) {
-        if (v != null && !v.isBlank()) map.put(k, v);
+        if (v != null && !v.isBlank()) {
+            map.put(k, v);
+        }
     }
 
     private boolean notBlank(String s) {
